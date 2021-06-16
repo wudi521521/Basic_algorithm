@@ -1,4 +1,4 @@
-package com.basic.select.sort;
+package com.basic.two.sort;
 import java.util.Arrays;
 
 /**

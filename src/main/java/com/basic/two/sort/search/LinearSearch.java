@@ -1,4 +1,4 @@
-package com.basic.linear.search;
+package com.basic.two.sort.search;
 
 /**
  * @author Dillon Wu

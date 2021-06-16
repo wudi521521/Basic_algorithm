@@ -1,16 +1,24 @@
-package com.basic.linear.search;
+package com.basic.two.sort;
 
 /**
  * @author Dillon Wu
  * @Description:
- * @date 2021/6/11 15:34
+ * @date 2021/6/14 21:30
  */
-public class Student {
+public class Student implements Comparable<Student> {
 
-    private String name;
-
-    Student(String name){
+    private  String name;
+    private int score;
+    public Student(String name,int score){
         this.name = name;
+        this.score = score;
+    }
+
+
+
+    @Override
+    public int compareTo(Student another) {
+        return this.score-another.score;
     }
 
     public boolean equals(Object student){
@@ -25,10 +33,14 @@ public class Student {
         if (this.getClass() != student.getClass()){
             return false;
         }
-
         Student another = (Student)student;
 
         return this.name.equals(another.name);
 
+    }
+
+    //格式化
+    public String toString(){
+        return String.format("Student(name:%s,score:%s)",name,score);
     }
 }
