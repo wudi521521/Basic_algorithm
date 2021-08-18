@@ -58,5 +58,6 @@ public class TaxCalaculator {
         //策略模式
         TaxCalaculator taxCalaculator = new TaxCalaculator(1000d,2000d,(s,b)->s*0.1+b*0.5);
         System.out.println(taxCalaculator.calculator());
+        Thread thread = new Thread();
     }
 }
