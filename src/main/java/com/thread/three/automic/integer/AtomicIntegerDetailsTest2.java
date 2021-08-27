@@ -1,4 +1,4 @@
-package com.thread.three.automic;
+package com.thread.three.automic.integer;
 
 /**
  * @author Dillon Wu

@@ -1,4 +1,4 @@
-package com.thread.three.automic;
+package com.thread.three.automic.integer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

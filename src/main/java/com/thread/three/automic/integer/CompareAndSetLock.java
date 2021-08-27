@@ -1,4 +1,4 @@
-package com.thread.three.automic;
+package com.thread.three.automic.integer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,7 +12,7 @@ public class CompareAndSetLock {
 
     private Thread lockedThread;
 
-    public void tryLock() throws GetLockException{
+    public void tryLock() throws GetLockException {
         boolean success = value.compareAndSet(0, 1);
         if (!success){
             throw new GetLockException("Get the lock failed");
