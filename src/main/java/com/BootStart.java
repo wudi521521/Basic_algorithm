@@ -33,4 +33,13 @@ public class BootStart {
         orderService.userOder(2);
     }
 
+    @GetMapping("/3")
+    public void ttl(){
+        orderService.ttl(3);
+    }
+    @GetMapping("/4")
+    public void message(){
+        orderService.message(4);
+    }
+
 }

@@ -1,5 +1,8 @@
 package com.amqp.springboot.send;
 
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,6 +38,45 @@ public class OrderService {
         //RabbitTemplate rabbitTemplate=new RabbitTemplate();
         rabbitTemplate.convertAndSend(exchangeName,routingKeySMS,orderId);
         rabbitTemplate.convertAndSend(exchangeName,routingKeyDuanxin,orderId);
+
+    }
+
+    public void topicOrder(Integer orderId){
+        System.out.println("====================");
+        String exchangeName = "topic_order_exchange";
+
+        String routing="";
+        rabbitTemplate.convertAndSend(exchangeName,routing,orderId);
+
+
+    }
+
+    public void ttl(Integer orderId){
+        System.out.println("====================");
+        String exchangeName = "ttl_direct_exchange";
+
+        String routing="ttl";
+        rabbitTemplate.convertAndSend(exchangeName,routing,orderId);
+
+
+    }
+
+    public void message(Integer orderId){
+        System.out.println("====================");
+        String exchangeName = "message_direct_exchange";
+        String routing="ttl";
+        //消息设置过期时间在发送的时候
+        MessagePostProcessor messagePostProcessor = new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                //这里设置字符串,5000毫秒
+                message.getMessageProperties().setExpiration("5000");
+                message.getMessageProperties().setContentEncoding("UTF-8");
+                return message;
+            }
+        };
+        rabbitTemplate.convertAndSend(exchangeName,routing,orderId,messagePostProcessor);
+
 
     }
 }
