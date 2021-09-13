@@ -55,8 +55,9 @@ public class ConsumerListener {
         zkClient = new ZooKeeper(connectString, sessionTimeOut, new Watcher() {
             @Override
             public void process(WatchedEvent watchedEvent) {
-                //注册一次监听一次
+
                 try {
+                    //注册一次监听一次
                     getServerList();
                 } catch (KeeperException e) {
                     e.printStackTrace();
