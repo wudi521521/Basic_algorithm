@@ -1,6 +1,6 @@
 package com.concurrent.phase.thread.current;
 
-import scala.Int;
+
 
 import java.util.Random;
 

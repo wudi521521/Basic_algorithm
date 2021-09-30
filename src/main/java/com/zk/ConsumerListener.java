@@ -4,7 +4,6 @@ import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import scala.math.Equiv;
 
 import java.io.IOException;
 import java.util.List;
